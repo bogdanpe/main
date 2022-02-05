@@ -20,6 +20,7 @@ def a(x, c, y):
         if c == "/":
           return div
         else:
-          return "N/A"
+          return "Not an operator, please try again"
+        
 
 print(a((), (), ()))
