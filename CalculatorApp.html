@@ -1,0 +1,167 @@
+<html>
+    <head>
+ 
+        <title>Calculator</title>
+ 
+ 
+    </head>
+    <body>
+        <h1>Simple Calculator</h1>
+        <div class="container">
+        <div class="jokeApp">
+            <button class="jokeButton" id="jkButton">Get Joke!</button>
+            <p class="jokeLine" placeholder="There will be a joke here"></p>
+            <p class="punchLine" placeholder="This is the punchline"></p>
+        </div>
+ 
+        <div class ="calculator">
+            <p>Date/Time: <span id="datetime"></span></p>
+            <form>
+                <div class="display">
+                    <input type="text" name="display" placeholder="0" style="color: aliceblue;">
+                </div>
+                <div class="buttons">
+                    <input type="button" class="operator" value="AC" onclick="display.value = `` ">
+                    <input type="button" class="operator" value="DE" onclick="display.value = display.value.toString().slice(0, -1)">
+                    <input type="button" value="." onclick="display.value += `.` ">
+                    <input type="button" class="operator" value="/" onclick="display.value = `/` ">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="7" onclick="display.value += `7` ">
+                    <input type="button" value="8" onclick="display.value += `8` ">
+                    <input type="button" value="9" onclick="display.value += `9` ">
+                    <input type="button" class="operator" value="*" onclick="display.value += `*` ">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="4" onclick="display.value += `4` ">
+                    <input type="button" value="5" onclick="display.value += `5` ">
+                    <input type="button" value="6" onclick="display.value += `6` ">
+                    <input type="button" class="operator" value="-" onclick="display.value = `-` ">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="1" onclick="display.value += `1` ">
+                    <input type="button" value="2" onclick="display.value += `2` ">
+                    <input type="button" value="3" onclick="display.value += `3` ">
+                    <input type="button" class="operator" value="+" onclick="display.value += `+` ">
+                </div>
+                <div class="buttons">
+                    <input type="button" value="00" onclick="display.value += `00` ">
+                    <input type="button" value="0" onclick="display.value += `0` ">
+                    <input type="button" value="=" id="equal" onclick ="display.value = eval(display.value)">
+ 
+                </div>
+            </form>
+        </div>
+    </div>
+ 
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    background-color: bisque  ;
+    font-family: monospace;
+    box-sizing: border-box;
+}
+ 
+.jokeApp{
+    box-sizing: border-box;
+    border-radius: 10%;
+    background: rgb(222, 181, 238);
+    align-items: center;
+    width: 50%;
+    height: 45vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    margin-right: 10em;
+}
+ 
+.jokeButton{
+    background-color: rgb(233, 233, 94);
+    border-radius: 45%;
+    border: solid 1px;
+    height: 3em;
+    width: 6em;
+    border-color: black;
+}
+ 
+h1 {
+    color: rgb(95, 14, 14)   ;
+    text-align: center;
+    padding-top: 2%;
+}
+ 
+.container {
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: bisque;
+    justify-content: center;
+    display: flex;
+}
+ 
+.calculator {
+    background: orangered;
+    padding: 30px;
+    border-radius: 20px;
+}
+ 
+.calculator form input{
+    border: 1;
+    outline: 0;
+    width: 60px;
+    height: 60;
+    border-radius: 25px;
+    padding: 10px;
+    background-color: orange;
+}
+ 
+form .display {
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 15px;
+    margin: 50px 0;
+}
+ 
+form .display input {
+    color: aliceblue;
+}
+ 
+.buttons {
+    margin: 10px;
+}
+ 
+.buttons:hover {
+    background-color: orangered;
+}
+#equal {
+    width: 126px;
+}
+ 
+form .operator {
+    color: rgb(197, 61, 61);
+}
+    </style>
+ 
+    <script>
+ 
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+ 
+        document.addEventListener("click", function (event){
+            if (!event.target.matches("#jkButton")) return;
+            fetch("<https://icanhazdadjoke.com>")
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+ 
+ 
+        });
+ 
+    </script>
+ 
+    </body>
+</html>
+ 
+ 
