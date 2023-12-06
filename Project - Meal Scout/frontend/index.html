@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-mainpage.css">
+    <link rel="stylesheet" href="style-loginpage.css">
+    <title>Meal Scout</title>
+</head>
+
+<body>
+
+    <div id="mainPage" class="mainPage" style="display: none;">
+        <h1>Meal Scout</h1>
+        <form id="mainPageForm">
+            <label>
+                <input type="text" id="search" placeholder="Enter ingredients">
+            </label>
+            <button type="submit" id="submit" class="btn" onclick="showResults()">Search</button>
+            <button class="back" id="back" onclick="switchToLoginPage()">Back to login</button>
+            <button type="submit" id="submit1" class="btn" onclick="switchToLocalRecipesPage()">Random Recipe</button>
+
+        </form>
+        <div class="filter" id="filter">
+            <p type="text" id="filtertext">Filter:</p><br>
+            <div class="checkbox-columns">
+                <div class="column">
+                    <input id="1" type="checkbox" class="ingredient-checkbox" value="dairy-free">dairy-free<br>
+                    <input id="2" type="checkbox" class="ingredient-checkbox" value="gluten-free">gluten-free<br>
+                    <input id="3" type="checkbox" class="ingredient-checkbox" value="peanut-free">peanut-free
+                </div>
+                <div class="column">
+                    <input id="4" type="checkbox" class="ingredient-checkbox" value="wheat-free">wheat-free<br>
+                    <input id="5" type="checkbox" class="ingredient-checkbox" value="vegan">vegan<br>
+                    <input id="6" type="checkbox" class="ingredient-checkbox" value="vegetarian">vegetarian
+                </div>
+            </div>
+        </div>
+
+        <div id="results"></div>
+    </div>
+    
+
+    <div id="localRecipesPage" class="localRecipesPage" style="display: none;">
+        
+        <button class="enter"  onclick="switchToLoginPage()">Back to login</button>
+        <button class="enter" onclick="switchToMainPage()">Go back</button>
+        <button type="submit" class="enter" onclick="switchToLocalRecipesPage()">Get another Random Recipe</button>
+        <div id="randomResults" class="randomResults"></div>
+    </div>
+
+
+    <div id="loginPage" class="container" >
+        <div class="appname">Meal Scout</div>
+        <div class="heading">Sign In</div>
+        <form id="loginPageForm" action="" class="form">
+            <input required="" autocomplete="on" class="input" type="email" name="email" id="loginEmail" placeholder="E-mail">
+            <input required="" class="input" type="password" name="password" id="loginPassword" placeholder="Password">
+            <input class="login-button" type="submit" value="Sign In" onclick="validateForm()">
+            <span class="register"><a href="javascript:switchToRegisterPage()">Don't have an Account? Register One</a></span>
+        </form>
+        <div class="Letme">Or just let me</div>
+        <button class="enter" onclick="switchToMainPage()">Search for a recipe</button>
+    </div>
+
+    <div id="registerPage" class="container" style="display: none;">
+        <div class="heading">Register</div>
+        <form id="registerPageForm" action="" class="form">
+            <input required="" autocomplete="on" class="input" type="email" name="email" id="registerEmail" placeholder="E-mail">
+            <input required="" class="input" type="password" name="password" id="registerPassword" placeholder="Password">
+            <input class="login-button" type="submit" value="Register" onclick="registerUser()">
+        </form>
+        <button class="enter" onclick="switchToLoginPage()">Back to login</button>
+    </div>
+
+    <script src="script.js"></script>
+    
+
+</body>
+
+</html>
